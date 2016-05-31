@@ -263,14 +263,29 @@ a.view-article {
 	display: inline-block;
 	margin: 0 auto;
 	border-radius: 50%;
-	width: 200px;
-	height: 200px;
+	width: 160px;
+	height: 160px;
 	background-size: cover;
 	background-position: center;
 	background-repeat: no-repeat;
 }
 .meet-me-desc{
 	text-align: justify;
+}
+
+.widget_search input[type="search"]{
+	padding: 10px;
+	border-radius: 3px;
+	border:1px solid #ddd;
+	width: 100%;
+}
+button.search-submit{
+	border: 0;
+	background: #69e;
+	color: #fff;
+	padding: 10px 30px;
+	border-radius: 3px;
+	margin: 5px 0;
 }
 
 /* footer */
