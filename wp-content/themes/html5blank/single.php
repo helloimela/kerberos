@@ -7,35 +7,44 @@
 	<?php if (have_posts()): while (have_posts()) : the_post(); ?>
 
 		<!-- article -->
-		<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+		<article id="post-<?php the_ID(); ?>" <?php post_class('single-post'); ?>>
 
 			<!-- post thumbnail -->
 			<?php if ( has_post_thumbnail()) : // Check if Thumbnail exists ?>
-				<a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">
-					<?php the_post_thumbnail(); // Fullsize image for the single post ?>
+			<?php $image = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'single-post-thumbnail' ); ?>
+				<a href="<?php the_permalink(); ?>" class="post-featured-image" title="<?php the_title(); ?>" style="background-image:url(<?php echo $image[0];?>);">
+					<span></span>
 				</a>
 			<?php endif; ?>
 			<!-- /post thumbnail -->
 
 			<!-- post title -->
-			<h1>
+			<h1 class="post-title">
 				<a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>"><?php the_title(); ?></a>
 			</h1>
 			<!-- /post title -->
 
 			<!-- post details -->
-			<span class="date"><?php the_time('F j, Y'); ?> <?php the_time('g:i a'); ?></span>
-			<span class="author"><?php _e( 'Published by', 'html5blank' ); ?> <?php the_author_posts_link(); ?></span>
-			<span class="comments"><?php if (comments_open( get_the_ID() ) ) comments_popup_link( __( 'Leave your thoughts', 'html5blank' ), __( '1 Comment', 'html5blank' ), __( '% Comments', 'html5blank' )); ?></span>
+			<div class="post-meta">
+				<span class="date"><?php the_time('F j, Y'); ?> <?php the_time('g:i a'); ?></span>
+				<span class="author"><?php _e( 'Published by', 'html5blank' ); ?> <?php the_author_posts_link(); ?></span>
+				<span class="comments"><?php if (comments_open( get_the_ID() ) ) comments_popup_link( __( 'Leave your thoughts', 'html5blank' ), __( '1 Comment', 'html5blank' ), __( '% Comments', 'html5blank' )); ?></span>
+			</div>
+
 			<!-- /post details -->
 
-			<?php the_content(); // Dynamic Content ?>
+			<div class="post-content">
+				<?php the_content(); // Dynamic Content ?>
+			</div>
 
-			<?php the_tags( __( 'Tags: ', 'html5blank' ), ', ', '<br>'); // Separated by commas with a line break at the end ?>
-
-			<p><?php _e( 'Categorised in: ', 'html5blank' ); the_category(', '); // Separated by commas ?></p>
-
-			<p><?php _e( 'This post was written by ', 'html5blank' ); the_author(); ?></p>
+			<div class="post-footer">
+				<div class="post-tags">
+					<?php the_tags( __( 'Tags ', 'html5blank' ), ' ', '<br>'); // Separated by commas with a line break at the end ?>
+				</div>
+				<div class="post-categories">
+					<p><?php _e( 'Categorised in ', 'html5blank' ); the_category(' '); // Separated by commas ?></p>
+				</div>
+			</div>
 
 			<?php edit_post_link(); // Always handy to have Edit Post Links available ?>
 

@@ -4,7 +4,7 @@
 		<!-- section -->
 		<section>
 
-			<h1><?php _e( 'Categories for ', 'html5blank' ); single_cat_title(); ?></h1>
+			<h2 class="subtitle"><?php _e( 'Posts in category ', 'html5blank' ); single_cat_title(); ?></h2>
 
 			<?php get_template_part('loop'); ?>
 

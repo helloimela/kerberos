@@ -142,7 +142,7 @@ input:focus {
 	width: 70%;
 	float: left;
 	box-sizing : border-box;
-	padding: 0 20px 0 0;
+	padding: 50px 20px 0 0;
 }
 
 .featured-image{
@@ -211,7 +211,7 @@ a.view-article {
 	text-align: center;
 	-webkit-filter: grayscale(100%);
 	filter: grayscale(100%);
-	margin: 50px 0;
+	margin: 0 0 50px 0;
 }
 .featured-post-entry{
 	padding: 30px;
@@ -300,6 +300,165 @@ button.search-submit{
 /*------------------------------------*\
     PAGES
 \*------------------------------------*/
+/*Category*/
+.subtitle{
+	font-weight: 400;
+	font-family: 'Merriweather',serif;
+	font-style: italic;
+	margin-top: 0;
+}
+
+/*Single Post*/
+.single-post{
+
+}
+
+.post-featured-image{
+	display: block;
+	width: 200px;
+	height: 200px;
+	margin: 0px auto;
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+	-webkit-filter: grayscale(100%);
+	filter: grayscale(100%);
+}
+.post-featured-image span{
+	display: block;
+	width: 90%;
+	height: 90%;
+	margin:0 auto;
+	position: relative;
+	top: 5%;
+	border: 1px solid #fff;
+}
+
+.single-post .post-title{
+	font-weight: 400;
+	font-family: 'Merriweather', serif;
+	font-style: italic;
+	font-size: 2.5em;
+	text-align: center;
+	margin-bottom: 10px;
+}
+.single-post .post-meta{
+	text-align: center;
+	font-size: 0.9em;
+	margin-bottom: 30px;
+}
+.single-post .post-content{
+	line-height: 1.6em;
+}
+.single-post .post-content img{
+	border:0 none;
+	height:auto;
+	margin:0 auto;
+	max-width:98.5%;
+	padding:0;
+	width:auto;
+	box-shadow: 0px 0px 2px #444;
+}
+.post-footer{
+	padding: 30px 0 0;
+	border-top: 1px solid #ddd;
+	margin-top: 30px;
+}
+.post-categories a,.post-tags a{
+	display: inline-block;
+	padding: 2px 10px;
+	background: #eee;
+	margin-right:2px;
+}
+.post-categories a:hover,.post-tags a:hover{
+	background: #ddd;
+}
+
+/*Comment section*/
+.comments-page{
+	padding-top: 30px;
+	margin-top: 30px;
+	border-top: 1px solid #ddd;
+	font-family: 'Merriweather',serif;
+	font-weight: 400;
+}
+.comments-page h2 .smaller{font-size: 0.6em;text-transform: capitalize;font-style: italic;}
+.comments-page li{
+	list-style-type: none;
+}
+.logged-in-as a{
+	color: #69e;
+}
+.comment-body{
+	padding: 15px;
+	margin: 5px 0;
+	position: relative;
+	font-style: italic;
+}
+.comment-body a{color: #69e;}
+.comment-body .says{display: none;}
+.comment-body cite{
+	position: absolute;display: block;
+	top: 45px;left: 90px;color: #069;
+	font-size: 1.2em;
+}
+.comment-meta{
+	display: block;
+	position: absolute;
+	top: 25px;
+	left: 90px;
+	font-size: 0.9em;
+}
+.comment-author img{
+	width: 60px; height: 60px;
+	border-radius: 50%;
+}
+.comment-body .comment-text{
+	border: 1px solid #ccc;
+	padding: 0 15px 15px;
+	margin: 10px 0;
+}
+.comment-text .reply{text-align: right;}
+#cancel-comment-reply-link{color: #69e;font-size: 0.9em;}
+.comment-awaiting-moderation{font-size: 0.8em;}
+
+.comment-respond,.comment-form #respond{
+	font-style: normal;
+	font-family: 'Montserrat', sans-serif;
+}
+#respond .comment-reply-title{
+	font-weight: 400;
+	font-size: 1.4em;
+	padding-top: 15px;
+	border-top: 1px solid #ddd;
+}
+.comment-form-comment label{
+	display: block;
+}
+.comment-form textarea,
+	.comment-form input[type="text"],
+	.comment-form input[type="email"],
+	.comment-form input[type="url"]{
+	width: 100%;
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 10px;
+	background: #eee;
+}
+.comment-form-comment textarea:focus{
+	outline: none;
+}
+.comment-form .submit{
+	border: 0;
+	background: #69e;
+	color: #fff;
+	padding: 10px 30px;
+	font-size: 1.2em;
+	border-radius: 3px;
+}
+.comment-form .submit:hover{
+	background: #87B4FF;
+}
 
 
 
@@ -399,7 +558,7 @@ a img.aligncenter {
 }
 .wp-caption {
 	background:#FFF;
-	border:1px solid #F0F0F0;
+	/*border:1px solid #F0F0F0;*/
 	max-width:96%;
 	padding:5px 3px 10px;
 	text-align:center;
@@ -420,13 +579,19 @@ a img.aligncenter {
 	max-width:98.5%;
 	padding:0;
 	width:auto;
+	box-shadow: 0px 0px 2px #444;
 }
 .wp-caption .wp-caption-text,
 .gallery-caption {
-	font-size:11px;
+	font-size: 12px;
+	font-style: italic;
 	line-height:17px;
-	margin:0;
-	padding:0 4px 5px;
+	margin: 10px 0 0;
+	padding: 5px;
+	font-family: 'Merriweather',serif;
+	border-top: 1px solid #888;
+	color: #444;
+}
 }
 .sticky {
 

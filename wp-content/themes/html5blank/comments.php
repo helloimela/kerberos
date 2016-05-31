@@ -1,4 +1,4 @@
-<div class="comments">
+<div class="comments-page">
 	<?php if (post_password_required()) : ?>
 	<p><?php _e( 'Post is password protected. Enter the password to view any comments.', 'html5blank' ); ?></p>
 </div>
@@ -15,10 +15,21 @@
 
 <?php elseif ( ! comments_open() && ! is_page() && post_type_supports( get_post_type(), 'comments' ) ) : ?>
 
-	<p><?php _e( 'Comments are closed here.', 'html5blank' ); ?></p>
+	<h2><?php _e( 'Comments are closed here.', 'html5blank' ); ?></h2>
+
+<?php elseif ( comments_open() && post_type_supports( get_post_type(), 'comments' ) ) : ?>
+
+	<h2><?php _e( '0 Comments. <span class="smaller">Be the first to reply</span>', 'html5blank' ); ?></h2>
 
 <?php endif; ?>
+<div class="comment-form">
 
-<?php comment_form(); ?>
+	<?php
+	$args = array(
+		'title_reply' =>'Leave your thoughts'
+		);
+	comment_form( $args );
+	?>
+</div>
 
 </div>

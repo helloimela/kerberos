@@ -255,7 +255,7 @@ function html5_blank_view_article($more)
     if($post->featured == 'yes'){
         return 'nomoreeee';
     }else {
-        return '... <a class="view-article" href="' . get_permalink($post->ID) . '">' . __('View Article', 'html5blank') . '</a>';
+        return '... <a class="view-article" href="' . get_permalink($post->ID) . '">' . __('Read More', 'html5blank') . '</a>';
     }
 }
 
@@ -330,11 +330,13 @@ function html5blankcomments($comment, $args, $depth)
 		?>
 	</div>
 
-	<?php comment_text() ?>
+	<div class="comment-text">
+        <?php comment_text() ?>
+        <div class="reply">
+        <?php comment_reply_link(array_merge( $args, array('add_below' => $add_below, 'depth' => $depth, 'max_depth' => $args['max_depth']))) ?>
+        </div>
+    </div>
 
-	<div class="reply">
-	<?php comment_reply_link(array_merge( $args, array('add_below' => $add_below, 'depth' => $depth, 'max_depth' => $args['max_depth']))) ?>
-	</div>
 	<?php if ( 'div' != $args['style'] ) : ?>
 	</div>
 	<?php endif; ?>
