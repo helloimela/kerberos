@@ -4,7 +4,7 @@
 		<!-- section -->
 		<section>
 
-			<h1><?php the_title(); ?></h1>
+			<h1 class="post-title"><?php the_title(); ?></h1>
 
 		<?php if (have_posts()): while (have_posts()) : the_post(); ?>
 
@@ -17,7 +17,9 @@
 
 				<br class="clear">
 
-				<?php edit_post_link(); ?>
+				<div class="post-footer">
+					<?php edit_post_link(); // Always handy to have Edit Post Links available ?>
+				</div>
 
 			</article>
 			<!-- /article -->

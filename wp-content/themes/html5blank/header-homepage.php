@@ -26,7 +26,7 @@
 	<body <?php body_class(); ?>>
 
 		<!-- header -->
-		<header class="header-normal clear" role="banner">
+		<header class="header-custom clear" role="banner">
 
 				<!-- logo -->
 				<div class="logo">

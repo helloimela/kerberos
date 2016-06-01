@@ -84,20 +84,32 @@ input:focus {
 	position:relative;
 }
 /* header */
-.header {
+.header-custom, .header-normal {
 	width: 100%;
-	background-image: url(img/bg.jpg);
-	background-size: cover;
-	background-position: center;
-	height: 400px;
 	position: relative;
 }
+.header-custom{
+	background-image: url(img/bg.jpg);
+	background-size: cover;
+	background-position:center top;
+	height: 400px;
+}
+.header-normal{
+	height: 200px;
+	background: #fff;
+}
+
 /* logo */
 .logo {
-
+	text-align: center;
+	margin-top: 20px;
+	width: 100%;
 }
 .logo-img {
 
+}
+.header-custom .logo{
+	margin-top: 70px;
 }
 /* nav */
 .nav {
@@ -105,36 +117,79 @@ input:focus {
 	position: absolute;
 	bottom: 0;
 	width: 100%;
-	background: #444;
+	background:rgba(255,255,255,0.8);
 }
 .nav ul{margin: 0; padding: 0;}
 .nav ul li{
 	list-style: none;
 	display: inline-block;
+	position: relative;
 }
 .nav ul li:not(:last-child) a:after{
 	content: '';
 	display: block;
 	position: absolute;
 	width: 5px; height: 5px;
-	background: #fff;
+	background: #aaa;
 	border-radius: 50%;
 	top: 50%;
 	right: 0;
 }
 .nav ul li a{
-	color:#fff;
+	color:#666;
 	display: block;
-	padding: 10px 20px 7px;
-	border-bottom: 3px solid transparent;
+	padding: 20px 20px 17px;
+	border-bottom: 1px solid transparent;
 	text-transform: lowercase;
 	font-weight: 400;
-	letter-spacing: 3px;
+	letter-spacing: 4px;
 	position: relative;
 }
 .nav ul li a:hover{
-	border-bottom: 3px solid #ddd;
-	color: #ddd;
+	border-bottom: 1px solid #aaa;
+	color: #aaa;
+}
+nav ul.sub-menu{
+	display: block;
+	position: absolute;
+	top:100%;
+	width: 200px;
+	left: 0;
+	background: #fff;
+	z-index: 33;
+	box-shadow:0px 0px 1px #aaa;
+	padding: 0 10px;
+	text-align: left;
+	-ms-transform: scale(0); /* IE 9 */
+	-moz-transform: scale(0); /* Mozzila */
+    -webkit-transform: scale(0); /* Chrome, Safari, Opera */
+    transform: scale(0);
+
+    -ms-transform-origin:0 0; /* IE 9 */
+	-moz-transform-origin:0 0; /* Mozzila */
+    -webkit-transform-origin:0 0; /* Chrome, Safari, Opera */
+    transform-origin:0 0;
+
+	-webkit-transition: -webkit-transform 0.3s; /* Safari */
+    -moz-transition: -moz-transform 0.3s;
+    -ms-transition: -ms-transform 0.3s;
+    transition: transform 0.3s;
+}
+.nav ul li:hover ul.sub-menu{
+	-ms-transform: scale(1); /* IE 9 */
+	-moz-transform: scale(1); /* Mozzila */
+    -webkit-transform: scale(1); /* Chrome, Safari, Opera */
+    transform: scale(1);
+}
+.nav .sub-menu li{
+	display: block;
+}
+.nav .sub-menu a{
+	border-bottom: 1px solid #ddd;
+}
+.nav .sub-menu li:last-child a{border-bottom: 0;}
+.nav ul.sub-menu li:not(:last-child) a:after{
+	display: none;
 }
 
 /* main */
@@ -248,9 +303,11 @@ a.view-article {
 	border-bottom: 1px solid #ddd;
 }
 .sidebar-widget h3{
-	font-weight: 400;
-	text-transform: uppercase;
+	font-weight: 700;
+	text-transform: capitalize;
 	font-size: 1.2em;
+	font-family: 'Merriweather',serif;
+	font-style: italic;
 }
 
 .widget_text{
@@ -278,15 +335,20 @@ a.view-article {
 	border-radius: 3px;
 	border:1px solid #ddd;
 	width: 100%;
+	box-sizing: border-box;
 }
 button.search-submit{
 	border: 0;
-	background: #69e;
-	color: #fff;
+	background: #fff;
+	color: #666;
 	padding: 10px 30px;
 	border-radius: 3px;
+	border: 1px solid #aaa;
 	margin: 5px 0;
+	width: 100%;
 }
+button.search-submit:focus{outline: none;}
+button.search-submit:hover{border:1px solid #69e; color: #69e;}
 
 /* footer */
 .footer {
@@ -334,7 +396,7 @@ button.search-submit{
 	border: 1px solid #fff;
 }
 
-.single-post .post-title{
+.post-title{
 	font-weight: 400;
 	font-family: 'Merriweather', serif;
 	font-style: italic;
@@ -361,8 +423,12 @@ button.search-submit{
 }
 .post-footer{
 	padding: 30px 0 0;
-	border-top: 1px solid #ddd;
+	/*border-top: 1px solid #ddd;*/
 	margin-top: 30px;
+}
+.post-footer .post-edit-link{
+	position: relative;
+	left: 0;bottom: 0;
 }
 .post-categories a,.post-tags a{
 	display: inline-block;
@@ -430,7 +496,7 @@ button.search-submit{
 	font-weight: 400;
 	font-size: 1.4em;
 	padding-top: 15px;
-	border-top: 1px solid #ddd;
+	/*border-top: 1px solid #ddd;*/
 }
 .comment-form-comment label{
 	display: block;

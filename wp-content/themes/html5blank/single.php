@@ -44,9 +44,9 @@
 				<div class="post-categories">
 					<p><?php _e( 'Categorised in ', 'html5blank' ); the_category(' '); // Separated by commas ?></p>
 				</div>
+				<?php edit_post_link(); // Always handy to have Edit Post Links available ?>
 			</div>
 
-			<?php edit_post_link(); // Always handy to have Edit Post Links available ?>
 
 			<?php comments_template(); ?>
 
