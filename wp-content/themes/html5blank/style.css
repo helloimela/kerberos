@@ -67,6 +67,13 @@ a:hover,
 a:active {
 	outline:0;
 }
+p a{
+	color: #69e;
+}
+p a:hover{
+	text-decoration: underline;
+	color: #69a
+}
 input:focus {
 	outline:0;
 	border:1px solid #04A4CC;
@@ -155,31 +162,33 @@ nav ul.sub-menu{
 	top:100%;
 	width: 200px;
 	left: 0;
+	opacity: 0;
 	background: #fff;
 	z-index: 33;
 	box-shadow:0px 0px 1px #aaa;
 	padding: 0 10px;
 	text-align: left;
-	-ms-transform: scale(0); /* IE 9 */
-	-moz-transform: scale(0); /* Mozzila */
-    -webkit-transform: scale(0); /* Chrome, Safari, Opera */
-    transform: scale(0);
+	-ms-transform: scale(1,0); /* IE 9 */
+	-moz-transform: scale(1,0); /* Mozzila */
+    -webkit-transform: scale(1,0); /* Chrome, Safari, Opera */
+    transform: scale(1,0);
 
-    -ms-transform-origin:0 0; /* IE 9 */
-	-moz-transform-origin:0 0; /* Mozzila */
-    -webkit-transform-origin:0 0; /* Chrome, Safari, Opera */
-    transform-origin:0 0;
+    -ms-transform-origin:50% 0; /* IE 9 */
+	-moz-transform-origin:50% 0; /* Mozzila */
+    -webkit-transform-origin:50% 0; /* Chrome, Safari, Opera */
+    transform-origin:50% 0;
 
-	-webkit-transition: -webkit-transform 0.3s; /* Safari */
-    -moz-transition: -moz-transform 0.3s;
-    -ms-transition: -ms-transform 0.3s;
-    transition: transform 0.3s;
+	-webkit-transition: all 0.3s; /* Safari */
+    -moz-transition: all 0.3s;
+    -ms-transition: all 0.3s;
+    transition: all 0.3s;
 }
 .nav ul li:hover ul.sub-menu{
-	-ms-transform: scale(1); /* IE 9 */
-	-moz-transform: scale(1); /* Mozzila */
-    -webkit-transform: scale(1); /* Chrome, Safari, Opera */
-    transform: scale(1);
+	-ms-transform: scale(1,1); /* IE 9 */
+	-moz-transform: scale(1,1); /* Mozzila */
+    -webkit-transform: scale(1,1); /* Chrome, Safari, Opera */
+    transform: scale(1,1);
+    opacity: 1;
 }
 .nav .sub-menu li{
 	display: block;
@@ -233,12 +242,13 @@ a.post-edit-link {
 	margin-bottom:50px;
 	float: left;
 }
-.post h2{
+.post-wrapper h2{
 	margin-top: 0;
 	text-transform: uppercase;
 	font-weight: 500;
 }
-.date, .author, .comments{
+.post-wrapper .date, .post-wrapper .author, .post-wrapper .comments,
+.post-meta .date, .post-meta .author, .post-meta .comments{
 	font-family: 'Merriweather', serif;
 	font-weight: 400;
 	font-style: italic;
